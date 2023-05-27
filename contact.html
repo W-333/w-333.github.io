@@ -1,4 +1,122 @@
-!DOCTYPE html
+<!DOCTYPE html>
 <html>
-    <head>Kraakman Beveilging</head>
+<head>
+  <meta charset="UTF-8">
+  <title>Kraakman Beveiliging - Contact</title>
+  <style>
+    /* CSS styles for the contact form */
+
+    /* General styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Header styles */
+    header {
+      background-color: #ffffff;
+      color: #000;
+      padding: 20px;
+      text-align: center;
+    }
+
+    /* Form container styles */
+    #contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    /* Form field styles */
+    .form-field {
+      margin-bottom: 20px;
+    }
+
+    .form-field label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .form-field input[type="text"],
+    .form-field textarea {
+      width: 100%;
+      padding: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      resize: vertical;
+    }
+
+    /* Send button styles */
+    .form-field .send-button {
+      background-color: #2196f3;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 14px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="title-container">
+      <h1>Kraakman Beveiliging</h1>
+    </div>
+  </header>
+
+  <div id="contact-form">
+    <h2>Contact formulier</h2>
+    <form id="myForm">
+      <div class="form-field">
+        <label for="name">Wat is je naam?</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+      <div class="form-field">
+        <label for="discord">Wat is je discord gebruikersnaam?</label>
+        <input type="text" id="discord" name="discord" required>
+      </div>
+      <div class="form-field">
+        <label for="question">Wat is je vraag?</label>
+        <textarea id="question" name="question" rows="4" required></textarea>
+      </div>
+      <div class="form-field">
+        <button type="submit" class="send-button">Verzenden</button>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    // Function to send form data to the webhook
+    function sendFormData(event) {
+      event.preventDefault();
+
+      var form = document.getElementById("myForm");
+      var formData = new FormData(form);
+
+      // Convert form data to JSON format
+      var jsonData = {};
+      for (var pair of formData.entries()) {
+        jsonData[pair[0]] = pair[1];
+      }
+
+      // Send JSON data to the webhook URL
+      var xhr = new XMLHttpRequest();
+      xhr.open("POST", "https://discord.com/api/webhooks/1111974239151603712/Ejp2taHNuRvijDlXhMfmvpRPq57QQW9n-jpys0X2m4Fg2kHx9uglqmFQ7eXksgwh-VUA"); // Replace with your webhook URL
+      xhr.setRequestHeader("Content-Type", "application/json");
+      xhr.send(JSON.stringify(jsonData));
+
+      // Reset form after submission
+      form.reset();
+
+      // Show a confirmation message
+      alert("Form submitted successfully!");
+    }
+
+    // Attach form submission event listener
+    document.getElementById("myForm").addEventListener("submit", sendFormData);
+  </script>
+</body>
 </html>
