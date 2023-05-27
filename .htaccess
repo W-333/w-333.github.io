@@ -1,6 +1,0 @@
-#remove html file extension from https://wiebren-3.github.io/index.html
-# to https://wiebren-3.com/Kraakman_Beveiliging/index
-RewriteEngine On
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^([^\.]+)$ $1.html [NC, L]
