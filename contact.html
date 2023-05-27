@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>Kraakman Beveiliging - Contact</title>
   <style>
-    /* CSS styles for the contact form */
+    /* CSS styles for the contact form and navbar */
 
     /* General styles */
     body {
@@ -58,6 +58,35 @@
       border-radius: 5px;
       cursor: pointer;
     }
+
+    /* Navbar styles */
+    nav {
+      background-color: #444444;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      display: inline;
+      margin-right: 10px;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      padding: 5px;
+    }
   </style>
 </head>
 <body>
@@ -66,6 +95,16 @@
       <h1>Kraakman Beveiliging</h1>
     </div>
   </header>
+
+  <nav>
+    <ul>
+      <li><a href="index.html">Gallerij</a></li>
+      <li><a href="services.html">Diensten</a></li>
+      <li><a href="roleplays.html">Roleplays</a></li>
+      <li><a href="location.html">Vestiging</a></li>
+      <li><a href="apply.html" target="_blank">Solliciteren</a></li>
+    </ul>
+  </nav>
 
   <div id="contact-form">
     <h2>Contact formulier</h2>
@@ -83,40 +122,36 @@
         <textarea id="question" name="question" rows="4" required></textarea>
       </div>
       <div class="form-field">
-        <button type="submit" class="send-button">Verzenden</button>
+        <button class="send-button" type="submit">Verstuur</button>
       </div>
     </form>
   </div>
 
   <script>
-    // Function to send form data to the webhook
+    document.getElementById("myForm").addEventListener("submit", sendFormData);
+
     function sendFormData(event) {
       event.preventDefault();
 
-      var form = document.getElementById("myForm");
-      var formData = new FormData(form);
+      const name = document.getElementById("name").value;
+      const discord = document.getElementById("discord").value;
+      const question = document.getElementById("question").value;
 
-      // Convert form data to JSON format
-      var jsonData = {};
-      for (var pair of formData.entries()) {
-        jsonData[pair[0]] = pair[1];
-      }
+      const payload = {
+        username: "Binnengekomen Sollicitaties",
+        avatar_url: "",
+        content: `**Contact formulier**\nNaam: ${name}\nDiscord: ${discord}\nVraag: ${question}`
+      };
 
-      // Send JSON data to the webhook URL
-      var xhr = new XMLHttpRequest();
-      xhr.open("POST", "https://discord.com/api/webhooks/1111974239151603712/Ejp2taHNuRvijDlXhMfmvpRPq57QQW9n-jpys0X2m4Fg2kHx9uglqmFQ7eXksgwh-VUA"); // Replace with your webhook URL
-      xhr.setRequestHeader("Content-Type", "application/json");
-      xhr.send(JSON.stringify(jsonData));
+      const request = new XMLHttpRequest();
+      request.open("POST", "https://discord.com/api/webhooks/1111974239151603712/Ejp2taHNuRvijDlXhMfmvpRPq57QQW9n-jpys0X2m4Fg2kHx9uglqmFQ7eXksgwh-VUA");
+      request.setRequestHeader("Content-type", "application/json");
 
-      // Reset form after submission
-      form.reset();
+      request.send(JSON.stringify(payload));
 
-      // Show a confirmation message
-      alert("Form submitted successfully!");
+      document.getElementById("myForm").reset();
+      alert("Bedankt voor je bericht! We nemen zo spoedig mogelijk contact met je op.");
     }
-
-    // Attach form submission event listener
-    document.getElementById("myForm").addEventListener("submit", sendFormData);
   </script>
 </body>
 </html>
