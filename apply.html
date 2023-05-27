@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Kraakman Beveiliging - Solliciteren</title>
+  <style>
+        /* CSS styles for the website */
+
+    /* General styles */
+    body {
+      font-family: Abadi MT, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Header styles */
+    header {
+      background-color: #ffffff;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    /* Form styles */
+    form {
+      font-family: Abadi MT, sans-serif;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    select {
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    textarea {
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    /* Submit button styles */
+    input[type="submit"] {
+      display: inline-block;
+      padding: 10px 20px;
+      font-size: 16px;
+      font-weight: bold;
+      text-align: center;
+      color: #fff;
+      background-color: #007bff;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+
+    /* Title styles */
+    h1 {
+      font-size: 24px;
+      font-family: Retroica, sans-serif;
+      margin: 0;
+    }
+  </style>
+  <script>
+    function sendMessage() {
+      const request = new XMLHttpRequest();
+      request.open("POST", "https://discord.com/api/webhooks/1110854676007616552/O8P7jkDPmLI7uvJq3haouWGzlTFTGFUfiUkxY-5QDicx9VGWzrUFGsjpJduDLILp-48k");
+      request.setRequestHeader('Content-type', 'application/json');
+      const params = {
+        username: "Binnengekomen Sollicitaties",
+        avatar_url: "",
+        content: `**Wat is je ingame naam?**\n${document.getElementById("ingame-naam").value}\n\n` +
+                 `**Wat is jouw E-Mail adres?**\n${document.getElementById("email").value}\n\n` +
+                 `**Wat is je Discord Gebruikersnaam?**\n${document.getElementById("discord-gebruikersnaam").value}\n\n` +
+                 `**Wat is je leeftijd (IRL)?**\n${document.getElementById("leeftijd").value}\n\n` +
+                 `**Heb je ervaring binnen de beveiligings industrie in Tedeapolis, of in Real Life?**\n${document.getElementById("ervaring-beveiligings-industrie").value}\n\n` +
+                 `**Op een schaal van 1 t/m 10, hoe actief ben je in de stad Tedeapolis (in reguliere weken)?**\n${document.getElementById("actief-in-stad").value}\n\n` +
+                 `**Wat voor functie zou u graag willen uitoefenen?**\n${document.getElementById("gewenste-functie").value}\n\n` +
+                 `**Mag je geweld gebruiken bij het beveiligen in TDA?**\n${document.getElementById("geweld-gebruiken").value}\n\n` +
+                 `**Je staat te beveiligen bij een club en je word geslagen, wat doe je dan?**\n${document.getElementById("quiz-vraag1").value}\n\n` +
+                 `**Je staat nog steeds bij de club te beveiligen en iemand trekt een mes en bedreigt je, wat doe je dan?**\n${document.getElementById("quiz-vraag2").value}\n\n` +
+                 `**Mag je door rood rijden als beveiliger?**\n${document.getElementById("door-rood-rijden").value}\n\n` +
+                 `**Welke rechten heb je als beveiliger dat een burger niet heeft?**\n${document.getElementById("beveiliger-rechten").value}`
+      };
+      request.send(JSON.stringify(params));
+
+      // Display success message and redirect to index.html after 2 seconds
+      setTimeout(function() {
+        alert("Je sollicitatie is succesvol in ontvangst genomen! Je kunt nu veilig verder browsen");
+        window.location.href = "index.html";
+      }, 2000);
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <div class="title-container">
+      <h1 style="color: #000;">Kraakman Beveiliging</h1>
+    </div>
+  </header>
+
+  <form onsubmit="sendMessage(); return false;">
+    <form action="#" method="POST">
+      <div class="form-group">
+        <label for="ingame-naam">Wat is je ingame naam?</label>
+        <input type="text" id="ingame-naam" name="ingame-naam" placeholder="Bijvoorbeeld: Arnold Kraakman">
+      </div>
+  
+      <div class="form-group">
+        <label for="email">Wat is jouw E-Mail adres?</label>
+        <input type="text" id="email" name="email" placeholder="Bijvoorbeeld: example@gmail.com">
+      </div>
+  
+      <div class="form-group">
+        <label for="telefoonnummer">Wat is jouw ingame telefoonnummer?</label>
+        <input type="number" id="telefoonnummer" name="telefoonnummer">
+      </div>
+  
+      <div class="form-group">
+        <label for="discord-gebruikersnaam">Wat is je Discord Gebruikersnaam?</label>
+        <input type="text" id="discord-gebruikersnaam" name="discord-gebruikersnaam" placeholder="Bijvoorbeeld: Rubjah#4434">
+      </div>
+  
+      <div class="form-group">
+        <label for="leeftijd">Wat is je leeftijd (IRL)?</label>
+        <input type="number" id="leeftijd" name="leeftijd">
+      </div>
+  
+      <div class="form-group">
+        <label for="ervaring-beveiligings-industrie">Heb je ervaring binnen de beveiligings industrie in Tedeapolis, of in Real Life?</label>
+        <textarea id="ervaring-beveiligings-industrie" name="ervaring-beveiligings-industrie" rows="4"></textarea>
+      </div>
+  
+      <div class="form-group">
+        <label for="actief-in-stad">Op een schaal van 1 t/m 10, hoe actief ben je in de stad Tedeapolis (in reguliere weken)?</label>
+        <input type="number" id="actief-in-stad" name="actief-in-stad" min="1" max="10">
+      </div>
+  
+      <div class="form-group">
+        <label for="gewenste-functie">Wat voor functie zou u graag willen uitoefenen?</label>
+        <select id="gewenste-functie" name="gewenste-functie">
+          <option value="beveiliger">Beveiliger</option>
+          <option value="administratief-medewerker">Administratief Medewerker</option>
+        </select>
+      </div>
+  
+      <div class="form-group">
+        <label for="geweld-gebruiken">Mag je geweld gebruiken bij het beveiligen in TDA?</label>
+        <select id="geweld-gebruiken" name="geweld-gebruiken">
+          <option value="ja">Ja</option>
+          <option value="nee">Nee</option>
+        </select>
+      </div>
+  
+      <div class="form-group">
+        <label for="quiz-vraag1">Je staat te beveiligen bij een club en je word geslagen, wat doe je dan?</label>
+        <textarea id="quiz-vraag1" name="quiz-vraag1" rows="4"></textarea>
+      </div>
+  
+      <div class="form-group">
+        <label for="quiz-vraag2">Je staat nog steeds bij de club te beveiligen en iemand trekt een mes en bedreigt je, wat doe je dan?</label>
+        <textarea id="quiz-vraag2" name="quiz-vraag2" rows="4"></textarea>
+      </div>
+  
+      <div class="form-group">
+        <label for="door-rood-rijden">Mag je door rood rijden als beveiliger?</label>
+        <textarea id="door-rood-rijden" name="door-rood-rijden" rows="4"></textarea>
+      </div>
+  
+      <div class="form-group">
+        <label for="beveiliger-rechten">Welke rechten heb je als beveiliger dat een burger niet heeft?</label>
+        <select id="beveiliger-rechten" name="beveiliger-rechten">
+          <option value="geweld-gebruiken">Geweld gebruiken op de plek waar je aan het beveiligen bent</option>
+          <option value="wapen-bezit">Wapen bezit op de plek waar je aan het beveiligen bent</option>
+          <option value="harder-rijden">Harder rijden dan de maximumsnelheid</option>
+          <option value="toegang-weigeren">Toegang weigeren tot bepaalde gebieden</option>
+        </select>
+      </div>
+  
+    <input type="submit" value="Solliciteer">
+  </form>
+</body>
+</html>

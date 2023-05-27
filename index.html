@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Kraakman Beveiliging</title>
+  <style>
+    /* CSS styles for the website */
+
+    /* General styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Header styles */
+    header {
+      background-color: #ffffff;
+      color: #000;
+      padding: 20px;
+      text-align: center;
+    }
+
+    /* Navigation menu styles */
+    nav {
+      background-color: #444444;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      display: inline;
+      margin-right: 10px;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      padding: 5px;
+    }
+
+    /* Image gallery styles */
+    #gallery {
+      text-align: center;
+    }
+
+    .image-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .image {
+      margin: 10px;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease-in-out;
+      cursor: pointer;
+    }
+
+    .image img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .image:hover {
+      transform: scale(1.1);
+    }
+
+    /* Title styles */
+    h1 {
+      font-size: 24px;
+      margin: 0;
+    }
+
+    /* Title container styles */
+    .title-container {
+      background-color: #ffffff;
+      color: #000;
+      padding: 10px;
+      text-align: center;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Modal styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    .modal-content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    }
+
+    .modal-image {
+      max-width: 80%;
+      max-height: 80%;
+    }
+
+    .close-modal {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      color: #fff;
+      font-size: 30px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="title-container">
+      <h1>Kraakman Beveiliging</h1>
+      <p>Bij Kraakman Beveiliging zetten we ons in voor de veiligheid en beveiliging van onze klanten. Of het nu gaat om evenementen, bedrijfspanden, of persoonlijke beveiliging, wij bieden professionele oplossingen op maat. Met ons ervaren team van beveiligingsprofessionals streven we ernaar om een veilige omgeving te creëren waarin iedereen zich beschermd voelt</p>
+    </div>
+  </header>
+  <nav>
+    <ul>
+      <li><a href="index.html">Gallerij</a></li>
+      <li><a href="services.html">Diensten</a></li>
+      <li><a href="roleplays.html">Roleplays</a></li>
+      <li><a href="location.html">Vestiging</a></li>
+      <li><a href="apply.html" target="_blank">Solliciteren</a></li>
+    </ul>
+  </nav>
+
+  <section id="gallery">
+    <div class="image-gallery">
+      <div class="image" onclick="openModal('img/image1.jpg')">
+        <img src="img/image1.jpg" alt="Afbeelding 1">
+      </div>
+      <div class="image" onclick="openModal('img/image2.jpg')">
+        <img src="img/image2.jpg" alt="Afbeelding 2">
+      </div>
+      <div class="image" onclick="openModal('img/image3.jpg')">
+        <img src="img/image3.jpg" alt="Afbeelding 3">
+      </div>
+      <div class="image" onclick="openModal('img/image4.jpg')">
+        <img src="img/image4.jpg" alt="Afbeelding 4">
+      </div>
+      <div class="image" onclick="openModal('img/image5.jpg')">
+        <img src="img/image5.jpg" alt="Afbeelding 5">
+      </div>
+      <div class="image" onclick="openModal('img/image6.jpg')">
+        <img src="img/image6.jpg" alt="Afbeelding 6">
+      </div>
+      <div class="image" onclick="openModal('img/image7.jpg')">
+        <img src="img/image7.jpg" alt="Afbeelding 7">
+      </div>
+      <div class="image" onclick="openModal('img/image8.jpg')">
+        <img src="img/image8.jpg" alt="Afbeelding 8">
+      </div>
+      <div class="image" onclick="openModal('img/image9.jpg')">
+        <img src="img/image9.jpg" alt="Afbeelding 9">
+      </div>
+      <div class="image" onclick="openModal('img/image10.jpg')">
+        <img src="img/image10.jpg" alt="Afbeelding 10">
+      </div>
+      <div class="image" onclick="openModal('img/image11.jpg')">
+        <img src="img/image11.jpg" alt="Afbeelding 11">
+      </div>
+      <div class="image" onclick="openModal('img/image12.jpg')">
+        <img src="img/image12.jpg" alt="Afbeelding 12">
+      </div>
+      <div class="image" onclick="openModal('img/image13.jpg')">
+        <img src="img/image13.jpg" alt="Afbeelding 13">
+      </div>
+      <div class="image" onclick="openModal('img/image14.jpg')">
+        <img src="img/image14.jpg" alt="Afbeelding 14">
+      </div>
+      <div class="image" onclick="openModal('img/image15.jpg')">
+        <img src="img/image15.jpg" alt="Afbeelding 15">
+      </div>
+      <div class="image" onclick="openModal('img/image16.jpg')">
+        <img src="img/image16.jpg" alt="Afbeelding 16">
+      </div>
+      <div class="image" onclick="openModal('img/image1.jpg')">
+        <img src="img/image17.jpg" alt="Afbeelding 18">
+      </div>
+      <div class="image" onclick="openModal('img/image2.jpg')">
+        <img src="img/image19.jpg" alt="Afbeelding 19">
+      </div>
+      <div class="image" onclick="openModal('img/image1.jpg')">
+        <img src="img/image20.jpg" alt="Afbeelding 20">
+      </div>
+      <div class="image" onclick="openModal('img/image2.jpg')">
+        <img src="img/image21.jpg" alt="Afbeelding 21">
+      </div>
+      <div class="image" onclick="openModal('img/image1.jpg')">
+        <img src="img/image22.jpg" alt="Afbeelding 22">
+      </div>
+      <div class="image" onclick="openModal('img/image2.jpg')">
+        <img src="img/image23.jpg" alt="Afbeelding 23">
+      </div>
+      <div class="image" onclick="openModal('img/image1.jpg')">
+        <img src="img/image24.jpg" alt="Afbeelding 24">
+      </div>
+    </div>
+  </section>
+
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal" onclick="closeModal()">&times;</span>
+      <img id="modalImage" class="modal-image">
+    </div>
+  </div>
+
+  <script>
+    function openModal(imageUrl) {
+      var modal = document.getElementById("myModal");
+      var modalImage = document.getElementById("modalImage");
+      modal.style.display = "block";
+      modalImage.src = imageUrl;
+    }
+
+    function closeModal() {
+      var modal = document.getElementById("myModal");
+      modal.style.display = "none";
+    }
+  </script>
+</body>
+</html>
