@@ -94,8 +94,7 @@
                  `**Wat is jouw E-Mail adres?**\n${document.getElementById("email").value}\n\n` +
                  `**Wat is je Discord Gebruikersnaam?**\n${document.getElementById("discord-gebruikersnaam").value}\n\n` +
                  `**Wat is je leeftijd (IRL)?**\n${document.getElementById("leeftijd").value}\n\n` +
-                 `**Heb je ervaring binnen de beveiligings industrie in Tedeapolis, of in Real Life? Vul hier je ervarig als Marketer/Administratief Medewerker in indien je deze selecteerd bij de volgende vraag!**\n${document.getElementById("ervaring-beveiligings-industrie").value}\n\n` +
-                 `**Wat is je kennis over het werken als beveiliger? Indien je administratief medewerker wilt worden benoem hier je ideeën die jij wilt uitwerken als administratief medewerker binnen Kraakman Beveiliging + hoe jij denkt goed te kunnen marketen, probeer hier ook bewijs/een voorproefje te uploaden.**\n${document.getElementById("kennis").value}\n\n` +
+                 `**Heb je ervaring binnen de beveiligings industrie in Tedeapolis, of in Real Life?**\n${document.getElementById("ervaring-beveiligings-industrie").value}\n\n` +
                  `**Op een schaal van 1 t/m 10, hoe actief ben je in de stad Tedeapolis (in reguliere weken)?**\n${document.getElementById("actief-in-stad").value}\n\n` +
                  `**Wat voor functie zou u graag willen uitoefenen?**\n${document.getElementById("gewenste-functie").value}\n\n` +
                  `**Mag je geweld gebruiken bij het beveiligen in TDA?**\n${document.getElementById("geweld-gebruiken").value}\n\n` +
@@ -103,7 +102,6 @@
                  `**Je staat nog steeds bij de club te beveiligen en iemand trekt een mes en bedreigt je, wat doe je dan?**\n${document.getElementById("quiz-vraag2").value}\n\n` +
                  `**Mag je door rood rijden als beveiliger?**\n${document.getElementById("door-rood-rijden").value}\n\n` +
                  `**Welke rechten heb je als beveiliger dat een burger niet heeft?**\n${document.getElementById("beveiliger-rechten").value}`
-                 `**Ik houd me momentueel niet bezig met de criminaliteit!**\n${document.getElementById("vog").value}`
       };
       request.send(JSON.stringify(params));
 
@@ -161,13 +159,9 @@ s0.parentNode.insertBefore(s1,s0);
       </div>
   
       <div class="form-group">
-        <label for="ervaring-beveiligings-industrie">Heb je ervaring binnen de beveiligings industrie in Tedeapolis, of in Real Life? Vul hier je ervarig als Marketer/Administratief Medewerker in indien je deze selecteerd bij de volgende vraag!</label>
+        <label for="ervaring-beveiligings-industrie">Heb je ervaring binnen de beveiligings industrie in Tedeapolis, of in Real Life?</label>
         <textarea id="ervaring-beveiligings-industrie" name="ervaring-beveiligings-industrie" rows="4"></textarea>
       </div>
-
-      <div class="form-group">
-        <label for="kennis">Wat is je kennis over het werken als beveiliger? Indien je administratief medewerker wilt worden benoem hier je ideeën die jij wilt uitwerken als administratief medewerker binnen Kraakman Beveiliging + hoe jij denkt goed te kunnen marketen, probeer hier ook bewijs/een voorproefje te uploaden</label>l
-        <textarea id="kennis" name="kennis" rows="4"></textarea>
   
       <div class="form-group">
         <label for="actief-in-stad">Op een schaal van 1 t/m 10, hoe actief ben je in de stad Tedeapolis (in reguliere weken)?</label>
@@ -214,14 +208,7 @@ s0.parentNode.insertBefore(s1,s0);
           <option value="toegang-weigeren">Toegang weigeren tot bepaalde gebieden</option>
         </select>
       </div>
-
-        <div class="form-group">
-          <label for="vog">Ik houd me momentueel niet bezig met de criminaliteit!</label>
-          <select id="vog" name=""vog">
-            <option value="ja">Ja</option>
-            <option value="nee">Nee</option>
-          </select>
-        </div>
+  
     <input type="submit" value="Solliciteer">
   </form>
 </body>
