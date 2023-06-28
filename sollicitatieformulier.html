@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Sollicitatieformulier</title>
+    <style>
+        @import url('https://fonts.cdnfonts.com/css/retroica');
+    </style>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            background-color: #0f0f0f;
+        }
+
+        .navbar {
+            background-color: #070808;
+            border-radius: 15px;
+            padding: 10px;
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            z-index: 999;
+        }
+
+        .navbar a {
+            color: #ebebeb;
+            text-decoration: none;
+            margin-right: 10px;
+        }
+
+        .container {
+            margin: 20px auto;
+            max-width: 600px;
+            background-color: #212121;
+            padding: 20px;
+            border-radius: 10px;
+            color: #ffffff;
+        }
+
+        .container label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        .container select,
+        .container textarea,
+        .container input[type="text"] {
+            width: 100%;
+            padding: 5px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: none;
+        }
+
+        .container textarea {
+            height: 100px;
+        }
+
+        .container button {
+            padding: 10px 20px;
+            margin-top: 10px;
+            background-color: #070808;
+            border: none;
+            color: #ffffff;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar">
+    <a href="index">Home</a>
+    <a href="diensten">Diensten</a>
+    <a href="contactformulier">Contact</a>
+    <a href="vestiging">Vestiging</a>
+    <a href="sollicitatieformulier">Solliciteren</a>
+    <a href="klachtenformulier">Klachten</a>
+</nav>
+
+<div class="container">
+    <h1>Sollicitatieformulier</h1>
+    <form>
+        <label>Wat is je ingame naam?</label>
+        <input type="text" id="ingame-naam" required>
+
+        <label>Wat is jouw E-Mail adres?</label>
+        <input type="text" id="email-adres" required>
+
+        <label>Wat is jouw ingame telefoonnummer?</label>
+        <input type="text" id="telefoonnummer" required>
+
+        <label>Wat is je Discord Gebruikersnaam?</label>
+        <input type="text" id="discord-gebruikersnaam" required>
+
+        <label>Wat is je leeftijd (IRL)?</label>
+        <input type="text" id="leeftijd" required>
+
+        <label>Heb je ervaring binnen de beveiligings industrie in Tedeapolis, of in Real Life? Als je administratief medewerker wilt worden, vul hier je ervaring in.</label>
+        <textarea id="ervaring" required></textarea>
+
+        <label>Op een schaal van 1 t/m 10, hoe actief ben je in de stad Tedeapolis (in reguliere weken)?</label>
+        <input type="text" id="actief-niveau" required>
+
+        <label>Wat voor functie zou u graag willen uitoefenen?</label>
+        <select id="functie" required>
+            <option value="" disabled selected>Kies een functie</option>
+            <option value="Beveiliger">Beveiliger</option>
+            <option value="Administratief Medewerker">Administratief Medewerker</option>
+        </select>
+
+        <label>Mag je geweld gebruiken bij het beveiligen in TDA?</label>
+        <select id="geweld-gebruik" required>
+            <option value="" disabled selected>Kies een optie</option>
+            <option value="Ja">Ja</option>
+            <option value="Nee">Nee</option>
+        </select>
+
+        <label>Je staat te beveiligen bij een club en je wordt geslagen, wat doe je dan?</label>
+        <textarea id="reactie-slagen" required></textarea>
+
+        <label>Je staat nog steeds bij de club te beveiligen en iemand trekt een mes en bedreigt je, wat doe je dan?</label>
+        <textarea id="reactie-mes" required></textarea>
+
+        <label>Mag je door rood rijden als beveiliger?</label>
+        <select id="door-rood-rijden" required>
+            <option value="" disabled selected>Kies een optie</option>
+            <option value="Ja">Ja</option>
+            <option value="Nee">Nee</option>
+        </select>
+
+        <label>Welke rechten heb je als beveiliger dat een burger niet heeft?</label>
+        <select id="beveiliger-rechten" multiple required>
+            <option value="Geweld gebruiken op de plek waar je aan het beveiligen bent">Geweld gebruiken op de plek waar je aan het beveiligen bent</option>
+            <option value="Wapenbezit op de plek waar je aan het beveiligen bent">Wapenbezit op de plek waar je aan het beveiligen bent</option>
+            <option value="Harder rijden dan de maximale snelheid op een openbare weg">Harder rijden dan de maximale snelheid op een openbare weg</option>
+            <option value="Toegang weigeren tot de plek waar je aan het beveiligen bent">Toegang weigeren tot de plek waar je aan het beveiligen bent</option>
+        </select>
+
+        <label>Ik houd me niet bezig met de criminaliteit!</label>
+        <select id="criminaliteit" required>
+            <option value="" disabled selected>Kies een optie</option>
+            <option value="Ja">Ja</option>
+            <option value="Nee">Nee</option>
+        </select>
+
+        <button type="submit" onclick="submitForm(event)">Solliciteren</button>
+    </form>
+</div>
+
+<script>
+    function submitForm(event) {
+        event.preventDefault();
+        const ingameNaam = document.getElementById('ingame-naam').value;
+        const emailAdres = document.getElementById('email-adres').value;
+        const telefoonnummer = document.getElementById('telefoonnummer').value;
+        const discordGebruikersnaam = document.getElementById('discord-gebruikersnaam').value;
+        const leeftijd = document.getElementById('leeftijd').value;
+        const ervaring = document.getElementById('ervaring').value;
+        const actiefNiveau = document.getElementById('actief-niveau').value;
+        const functie = document.getElementById('functie').value;
+        const geweldGebruik = document.getElementById('geweld-gebruik').value;
+        const reactieSlagen = document.getElementById('reactie-slagen').value;
+        const reactieMes = document.getElementById('reactie-mes').value;
+        const doorRoodRijden = document.getElementById('door-rood-rijden').value;
+        const beveiligerRechten = Array.from(document.getElementById('beveiliger-rechten').selectedOptions).map(option => option.value);
+        const criminaliteit = document.getElementById('criminaliteit').value;
+
+        const webhookUrl = 'https://discord.com/api/webhooks/1110854676007616552/O8P7jkDPmLI7uvJq3haouWGzlTFTGFUfiUkxY-5QDicx9VGWzrUFGsjpJduDLILp-48k';
+
+        const payload = {
+            "content": "**Wat is je ingame naam?**\n> " + ingameNaam +
+            "\n\n**Wat is jouw E-Mail adres?**\n> " + emailAdres +
+            "\n\n**Wat is jouw ingame telefoonnummer?**\n> " + telefoonnummer +
+            "\n\n**Wat is je Discord Gebruikersnaam?**\n> " + discordGebruikersnaam +
+            "\n\n**Wat is je leeftijd (IRL)?**\n> " + leeftijd +
+            "\n\n**Heb je ervaring binnen de beveiligings industrie in Tedeapolis, of in Real Life? Als je administratief medewerker wilt worden, vul hier je ervaring in.**\n> " + ervaring +
+            "\n\n**Op een schaal van 1 t/m 10, hoe actief ben je in de stad Tedeapolis (in reguliere weken)?**\n> " + actiefNiveau +
+            "\n\n**Wat voor functie zou u graag willen uitoefenen?**\n> " + functie +
+            "\n\n**Mag je geweld gebruiken bij het beveiligen in TDA?**\n> " + geweldGebruik +
+            "\n\n**Je staat te beveiligen bij een club en je wordt geslagen, wat doe je dan?**\n> " + reactieSlagen +
+            "\n\n**Je staat nog steeds bij de club te beveiligen en iemand trekt een mes en bedreigt je, wat doe je dan?**\n> " + reactieMes +
+            "\n\n**Mag je door rood rijden als beveiliger?**\n> " + doorRoodRijden +
+            "\n\n**Welke rechten heb je als beveiliger dat een burger niet heeft?**\n> " + beveiligerRechten.join(", ") +
+            "\n\n**Ik houd me niet bezig met de criminaliteit!**\n> " + criminaliteit
+        };
+
+        const request = new XMLHttpRequest();
+        request.open("POST", webhookUrl, true);
+        request.setRequestHeader('Content-Type', 'application/json');
+        request.send(JSON.stringify(payload));
+        alert("Sollicitatieformulier is succesvol verzonden!");
+        location.reload();
+    }
+</script>
+    <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="3947d049-2bf4-4748-bfcf-00a32a454565";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
+</body>
+</html>

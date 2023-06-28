@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Contactformulier</title>
+    <style>
+        @import url('https://fonts.cdnfonts.com/css/retroica');
+        
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        
+        .navbar {
+            background-color: #070808;
+            border-radius: 15px;
+            padding: 10px;
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            z-index: 999;
+        }
+        
+        .navbar a {
+            color: #ebebeb;
+            text-decoration: none;
+            margin-right: 10px;
+        }
+        
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url(image2.jpg);
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .form-container {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 400px;
+        }
+        
+        .form-container label {
+            color: #ebebeb;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        
+        .form-container input,
+        .form-container textarea {
+            width: 97%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: none;
+        }
+        
+        .form-container button {
+            background-color: #0011ff;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        .form-container button:hover {
+            background-color: #d1d1d1;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index">Home</a>
+        <a href="diensten">Diensten</a>
+        <a href="contactformulier">Contact</a>
+        <a href="vestiging">Vestiging</a>
+        <a href="sollicitatieformulier">Solliciteren</a>
+        <a href="klachtenformulier">Klachten</a>
+    </nav>
+    
+    <div class="container">
+        <div class="form-container">
+            <form id="contact-form" action="https://discord.com/api/webhooks/1111974239151603712/Ejp2taHNuRvijDlXhMfmvpRPq57QQW9n-jpys0X2m4Fg2kHx9uglqmFQ7eXksgwh-VUA" method="POST">
+                <label for="name">Wat is je naam?</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="discord">Wat is je Discord gebruikersnaam?</label>
+                <input type="text" id="discord" name="discord" required>
+                
+                <label for="question">Wat is je vraag?</label>
+                <textarea id="question" name="question" required></textarea>
+                
+                <button type="submit">Verzend</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("contact-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            var name = document.getElementById("name").value;
+            var discord = document.getElementById("discord").value;
+            var question = document.getElementById("question").value;
+
+            var webhookUrl = "https://discord.com/api/webhooks/1111974239151603712/Ejp2taHNuRvijDlXhMfmvpRPq57QQW9n-jpys0X2m4Fg2kHx9uglqmFQ7eXksgwh-VUA";
+            var message =
+                "**Contact formulier:**\n> Naam: " +
+                name +
+                "\n> Discord: " +
+                discord +
+                "\n> Vraag: " +
+                question;
+
+            var request = new XMLHttpRequest();
+            request.open("POST", webhookUrl);
+            request.setRequestHeader("Content-type", "application/json");
+            request.send(JSON.stringify({ content: message }));
+
+            // Notificatie weergeven na verzenden
+            alert(
+                "Contactformulier is succesvol verzonden. Je kunt nu veilig verder browsen. Je zult zo spoedig mogelijk antwoord krijgen van een leidinggevende."
+            );
+        });
+    </script>
+    <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="3947d049-2bf4-4748-bfcf-00a32a454565";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
+</body>
+</html>
